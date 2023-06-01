@@ -1,4 +1,4 @@
-import BackDrop from "@/components/backdrop"
+import BackDrop from '@/components/BackDrop'
 
 export default function Home() {
   return (
