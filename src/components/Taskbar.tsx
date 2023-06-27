@@ -1,11 +1,24 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { taskbar_items } from '@/content/taskbar_items';
 import { IconContext } from 'react-icons';
 import { HiSquares2X2 } from 'react-icons/hi2';
 
-export default function Taskbar() {
+interface TaskbarButton {
+  name: string;
+  icon: JSX.Element;
+  alt: string;
+}
+
+interface TaskbarProps {
+  onButtonClick: (id: string) => void;
+}
+
+export default function Taskbar(props: TaskbarProps) {
+  const { onButtonClick } = props;
+  const [buttons, setButtons] = useState<TaskbarButton[]>(taskbar_items);
+
   const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
 
@@ -25,30 +38,37 @@ export default function Taskbar() {
   }, []);
 
   return (
-    <div className="absolute bottom-0 flex h-24 w-full justify-between bg-black/40 backdrop-blur-lg">
+    <div className="absolute bottom-0 z-0 flex h-24 w-full justify-between bg-black/40 backdrop-blur-lg">
+      {/* Start Menu */}
       <div className="flex flex-row">
-        <div className="flex aspect-square h-full items-center justify-center text-white transition-all duration-200 hover:bg-white/10">
-          <IconContext.Provider value={{ size: '2em' }}>
+        <div className="btn-ghost btn flex aspect-square h-full items-center justify-center text-3xl text-white transition-all duration-500">
+          <IconContext.Provider value={{ size: '1em' }}>
             <HiSquares2X2 className="text-white" />
           </IconContext.Provider>
         </div>
       </div>
+
+      {/* Taskbar Apps */}
       <div className="flex flex-row">
-        {taskbar_items.map((app, index) => (
+        {buttons.map((app, index) => (
           <div
-            className="flex aspect-square h-full items-center justify-center text-white transition-all duration-200 hover:bg-white/10"
+            className="btn-ghost btn tooltip flex aspect-square h-full items-center justify-center text-white transition-all duration-500"
             key={index}
+            data-tip={app.name}
+            onClick={() => onButtonClick(app.name)}
           >
-            <IconContext.Provider value={{ size: '2em' }}>
-              <div className="flex flex-col items-center justify-center pt-1">
+            <IconContext.Provider value={{ size: '1em' }}>
+              <div className="flex flex-col items-center justify-center text-3xl">
                 {app.icon}
-                <span>{app.name}</span>
+                {/* <span>{app.name}</span> */}
               </div>
             </IconContext.Provider>
           </div>
         ))}
       </div>
-      <div className="flex h-full flex-col items-center justify-center px-3 transition-all duration-200 hover:bg-white/10">
+
+      {/* Action Center */}
+      <div className="btn-ghost btn flex h-full flex-col items-center justify-center px-3 transition-all duration-500">
         <div className="text-white">
           {time.toLocaleTimeString([], {
             hour12: true,
