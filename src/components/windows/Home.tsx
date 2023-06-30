@@ -35,7 +35,7 @@ export function Home(props: WindowProps) {
       x: 0,
       y: 0,
       width: window.innerWidth,
-      height: window.innerHeight,
+      height: window.innerHeight - 96,
     });
     setIsMaximized(true);
   };
@@ -59,7 +59,7 @@ export function Home(props: WindowProps) {
           position={{ x: state.x, y: state.y }}
           minWidth={rndWidth / 2}
           minHeight={rndHeight / 2}
-          bounds="window"
+          bounds="parent"
           cancel=".win_content"
           onDragStop={(e, d) => {
             setState({ ...state, x: d.x, y: d.y });

@@ -9,25 +9,27 @@ export default function Desktop() {
   const [activeBtn, setActiveBtn] = useState<string | null>(null);
 
   const handleBtnClick = (btnName: string) => {
-    setActiveBtn(btnName)
-  }
+    setActiveBtn(btnName);
+  };
 
   const handleCloseWindow = () => {
     setActiveBtn(null);
-  }
+  };
 
   return (
-    <div className="-z-40 h-full w-auto">
-      {activeBtn && (
-        <Home
-          rndWidth={window.innerWidth / 2}
-          rndHeight={window.innerHeight / 2}
-          xCord={window.innerWidth / 2 / 2}
-          yCord={window.innerHeight / 2 / 2}
-          onClose={handleCloseWindow}
-        />
-      )}
+    <div className="flex h-screen w-screen flex-col-reverse">
       <Taskbar onButtonClick={handleBtnClick} />
+      <div className="h-full w-full">
+        {activeBtn && (
+          <Home
+            rndWidth={window.innerWidth / 2}
+            rndHeight={window.innerHeight / 2}
+            xCord={window.innerWidth / 2 / 2}
+            yCord={window.innerHeight / 2 / 2}
+            onClose={handleCloseWindow}
+          />
+        )}{' '}
+      </div>
     </div>
   );
 }

@@ -42,7 +42,7 @@ export default function Taskbar(props: TaskbarProps) {
   }, []);
 
   return (
-    <div className="absolute bottom-0 z-0 flex h-24 w-full justify-between bg-black/40 backdrop-blur-lg">
+    <div className="flex h-24 w-full justify-between bg-black/40 backdrop-blur-lg">
       {/* Start Menu */}
       <div className="flex flex-row">
         <div className="btn-ghost btn flex aspect-square h-full items-center justify-center text-3xl text-white transition-all duration-500">
