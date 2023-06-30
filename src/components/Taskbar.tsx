@@ -19,6 +19,10 @@ export default function Taskbar(props: TaskbarProps) {
   const { onButtonClick } = props;
   const [buttons, setButtons] = useState<TaskbarButton[]>(taskbar_items);
 
+  const handleTaskbarButtonClick = (name: string) => {
+    onButtonClick(name);
+  };
+
   const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
 
@@ -55,7 +59,7 @@ export default function Taskbar(props: TaskbarProps) {
             className="btn-ghost btn tooltip flex aspect-square h-full items-center justify-center text-white transition-all duration-500"
             key={index}
             data-tip={app.name}
-            onClick={() => onButtonClick(app.name)}
+            onClick={() => handleTaskbarButtonClick(app.name)}
           >
             <IconContext.Provider value={{ size: '1em' }}>
               <div className="flex flex-col items-center justify-center text-3xl">

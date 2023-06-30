@@ -2,24 +2,23 @@ import { useState } from 'react';
 import { Rnd } from 'react-rnd';
 
 interface WindowProps {
-  title: string;
   width: number;
   height: number;
   onClose: () => void;
 }
 
 export default function Window(props: WindowProps) {
-  const { title, width, height, onClose } = props;
+  const { width, height, onClose } = props;
   const [isOpen, setIsOpen] = useState(true);
 
   const handleOpen = () => {
-    setIsOpen(true);
-  };
+    setIsOpen(true)
+  }
 
   const handleClose = () => {
-    setIsOpen(false);
-    if (onClose) onClose();
-  };
+    setIsOpen(false)
+    if (onClose) onClose()
+  }
 
   return (
     <>

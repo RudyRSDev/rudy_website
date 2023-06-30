@@ -9,33 +9,33 @@ import {
 
 export const taskbar_items = [
   {
-    name: 'Main',
+    name: 'Home',
     icon: <FaHouse />,
-    alt: 'Main Windows',
+    alt: 'Home Page of the Website',
   },
   {
     name: 'About',
     icon: <FaCircleInfo />,
-    alt: 'About Windows',
+    alt: 'Overview of the Website and About Me',
   },
   {
     name: 'Skills',
     icon: <FaCode />,
-    alt: 'Skills Windows',
+    alt: 'Skills I have learn and experience with',
   },
   {
     name: 'Projects',
     icon: <FaFolder />,
-    alt: 'Projects Windows',
+    alt: 'My Past Projects in a showcase',
   },
   {
     name: 'Education',
     icon: <FaBook />,
-    alt: 'Education Windows',
+    alt: 'My Education and Certifications',
   },
   {
     name: 'Experience',
     icon: <FaBriefcase />,
-    alt: 'Work & Experience Windows',
+    alt: 'Places of Employment and Experience',
   },
 ];
