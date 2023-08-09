@@ -3,32 +3,49 @@
 import { useState } from 'react';
 import Taskbar from './Taskbar';
 import Window from './Window';
-import { Home } from './windows';
+import { Home, About } from './windows';
 
 export default function Desktop() {
-  const [activeBtn, setActiveBtn] = useState<string | null>(null);
+  const [activeBtns, setActiveBtns] = useState<string[]>([]);
 
   const handleBtnClick = (btnName: string) => {
-    setActiveBtn(btnName);
+    setActiveBtns([...activeBtns, btnName]);
   };
 
-  const handleCloseWindow = () => {
-    setActiveBtn(null);
+  const handleCloseWindow = (btnName: string) => {
+    setActiveBtns(activeBtns.filter((name) => name !== btnName));
   };
 
   return (
     <div className="flex h-screen w-screen flex-col-reverse">
       <Taskbar onButtonClick={handleBtnClick} />
       <div className="h-full w-full">
-        {activeBtn && (
-          <Home
-            rndWidth={window.innerWidth / 2}
-            rndHeight={window.innerHeight / 2}
-            xCord={window.innerWidth / 2 / 2}
-            yCord={window.innerHeight / 2 / 2}
-            onClose={handleCloseWindow}
-          />
-        )}{' '}
+        {activeBtns.map((btnName) => {
+          if (btnName === 'home') {
+            return (
+              <Home
+                key={btnName}
+                rndWidth={window.innerWidth / 2}
+                rndHeight={window.innerHeight / 2}
+                xCord={window.innerWidth / 2 / 2}
+                yCord={window.innerHeight / 2 / 2}
+                onClose={() => handleCloseWindow(btnName)}
+              />
+            );
+          } else if (btnName === 'about') {
+            return (
+              <About
+                key={btnName}
+                rndWidth={window.innerWidth / 2}
+                rndHeight={window.innerHeight / 2}
+                xCord={window.innerWidth / 2 / 2}
+                yCord={window.innerHeight / 2 / 2}
+                onClose={() => handleCloseWindow(btnName)}
+              />
+            );
+          }
+          return null;
+        })}
       </div>
     </div>
   );
