@@ -3,49 +3,51 @@
 import { useState } from 'react';
 import Taskbar from './Taskbar';
 import Window from './Window';
-import { Home, About } from './windows';
+import { apps } from '@/content/apps';
+
+function getWindowDimensions() {
+  return {
+    width: window.innerWidth / 2,
+    height: window.innerHeight / 2,
+    x: window.innerWidth / 4,
+    y: window.innerHeight / 4,
+  };
+}
 
 export default function Desktop() {
-  const [activeBtns, setActiveBtns] = useState<string[]>([]);
+  const [activeApps, setActiveApps] = useState(apps);
+  const [windowPos, setWindowPos] = useState({ x: 0, y: 0 });
 
-  const handleBtnClick = (btnName: string) => {
-    setActiveBtns([...activeBtns, btnName]);
-  };
+  const handleClose = (name: string) => {
 
-  const handleCloseWindow = (btnName: string) => {
-    setActiveBtns(activeBtns.filter((name) => name !== btnName));
-  };
+  }
+  const handleMultiWindow = () => {
+    setWindowPos({ x: windowPos.x + 20, y: windowPos.y + 20 })
+  }
 
   return (
     <div className="flex h-screen w-screen flex-col-reverse">
-      <Taskbar onButtonClick={handleBtnClick} />
+      <Taskbar onButtonClick={() => handleClose} />
       <div className="h-full w-full">
-        {activeBtns.map((btnName) => {
-          if (btnName === 'home') {
+        {activeApps.map((app) => {
+          const { id, name, icon, alt, window, state } = app;
+          const { width, height, x, y } = getWindowDimensions();
+          if (state === 1)
             return (
-              <Home
-                key={btnName}
-                rndWidth={window.innerWidth / 2}
-                rndHeight={window.innerHeight / 2}
-                xCord={window.innerWidth / 2 / 2}
-                yCord={window.innerHeight / 2 / 2}
-                onClose={() => handleCloseWindow(btnName)}
+              <Window
+                key={id}
+                name={name}
+                icon={icon}
+                rndWidth={width}
+                rndHeight={height}
+                xCord={x + (id * 30)}
+                yCord={y + (id * 30)}
+                onClose={() => handleClose(name)}
+                content={window}
               />
-            );
-          } else if (btnName === 'about') {
-            return (
-              <About
-                key={btnName}
-                rndWidth={window.innerWidth / 2}
-                rndHeight={window.innerHeight / 2}
-                xCord={window.innerWidth / 2 / 2}
-                yCord={window.innerHeight / 2 / 2}
-                onClose={() => handleCloseWindow(btnName)}
-              />
-            );
-          }
-          return null;
+            )
         })}
+
       </div>
     </div>
   );
