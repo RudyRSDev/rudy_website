@@ -1,26 +1,27 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { taskbar_items } from '@/content/taskbar_items';
 import { IconContext } from 'react-icons';
 import { HiSquares2X2 } from 'react-icons/hi2';
 
-interface TaskbarButton {
-  name: string;
-  icon: JSX.Element;
-  alt: string;
-}
-
 interface TaskbarProps {
-  onButtonClick: (id: string) => void;
+  apps: any;
 }
 
 export default function Taskbar(props: TaskbarProps) {
-  const { onButtonClick } = props;
-  const [buttons, setButtons] = useState<TaskbarButton[]>(taskbar_items);
+  const { apps } = props;
+  const [activeApps, setActiveApps] = apps|| [apps, () => {}];
 
   const handleTaskbarButtonClick = (name: string) => {
-    onButtonClick(name);
+    setActiveApps((prevApps: any[]) => {
+      return prevApps.map((app: { name: string; }) => {
+        if (app.name === name) {
+          return { ...app, state: 1 };
+        } else {
+          return app;
+        }
+      });
+    });
   };
 
   const [time, setTime] = useState(new Date());
@@ -41,6 +42,8 @@ export default function Taskbar(props: TaskbarProps) {
     };
   }, []);
 
+  const sortedApps = activeApps.slice().sort((a:any, b:any) => a.id - b.id);
+
   return (
     <div className="flex h-24 w-full justify-between bg-black/40 backdrop-blur-lg">
       {/* Start Menu */}
@@ -54,21 +57,40 @@ export default function Taskbar(props: TaskbarProps) {
 
       {/* Taskbar Apps */}
       <div className="flex flex-row">
-        {buttons.map((app, index) => (
-          <div
-            className="btn-ghost btn tooltip flex aspect-square h-full items-center justify-center text-white transition-all duration-500"
-            key={index}
-            data-tip={app.name}
-            onClick={() => handleTaskbarButtonClick(app.name)}
-          >
-            <IconContext.Provider value={{ size: '1em' }}>
-              <div className="flex flex-col items-center justify-center text-3xl">
-                {app.icon}
-                {/* <span>{app.name}</span> */}
+      {sortedApps.map((app: { id: any; name: any; icon: any; alt: any; window: any; state: any; }) => {
+          const { id, name, icon, alt, window, state } = app;
+          if (state === 1)
+            return (
+              <div className="btn-ghost btn tooltip flex aspect-square h-full items-center justify-center text-white transition-all duration-500"
+                key={id}
+                data-tip={name}
+                onClick={() => handleTaskbarButtonClick(name)}
+              >
+                <IconContext.Provider value={{ size: '1em' }}>
+                  <div className="flex flex-col items-center justify-center text-3xl">
+                    {icon}
+                    <div className="absolute w-4 h-1 bg-white rounded mt-12 transition-all"></div>
+                  </div>
+                </IconContext.Provider>
               </div>
-            </IconContext.Provider>
-          </div>
-        ))}
+            )
+          else
+            return (
+              <div className="btn-ghost btn tooltip flex aspect-square h-full items-center justify-center text-white transition-all duration-500"
+                key={id}
+                data-tip={name}
+                onClick={() => handleTaskbarButtonClick(name)}
+              >
+                <IconContext.Provider value={{ size: '1em' }}>
+                  <div className="flex flex-col items-center justify-center text-3xl">
+                    {icon}
+                    <div className="absolute w-0 h-0 bg-white rounded mt-12 transition-all"></div>
+                  </div>
+                </IconContext.Provider>
+              </div>
+              )
+          
+        })}
       </div>
 
       {/* Action Center */}
