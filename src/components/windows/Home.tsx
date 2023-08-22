@@ -36,9 +36,8 @@ export function Home() {
             {socials.map((social) => {
               const { id, name, icon, url } = social
               return (
-                <Link href={url} target="_blank">
+                <Link key={id} href={url} target="_blank">
                   <div 
-                    key={id}
                     data-tip={name}
                     className="tooltip text-4xl mt-2 text-white hover:text-white/50 transition-all duration-500"
                   >
