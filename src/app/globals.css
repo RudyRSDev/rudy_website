@@ -18,6 +18,10 @@ body,
   @apply rounded-none
 }
 
+.btn-active {
+  @apply rounded-none bg-gray-600 text-white
+}
+
 .os-btn {
-  @apply rounded-md bg-gray-600 h-fit px-4 py-1 text-white font-light border-2 border-gray-400/0 shadow-lg hover:border-gray-400 transition-all duration-500
+  @apply rounded-md bg-gray-600 h-fit px-4 py-1 text-white text-base font-light border-2 border-gray-400/0 shadow-lg hover:border-gray-400 transition-all duration-500
 }

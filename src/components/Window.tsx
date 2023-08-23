@@ -14,10 +14,10 @@ export default function Window(props: WindowProps) {
 
   const [isMaximized, setIsMaximized] = useState(false);
   const [state, setState] = useState({
-    x: 0,
-    y: 0,
-    width: 0,
-    height: 0,
+    x: 500,
+    y: 500,
+    width: 1000,
+    height: 500,
   });
 
   const handleMaximize = () => {
@@ -32,20 +32,20 @@ export default function Window(props: WindowProps) {
 
   const handleMinimize = () => {
     setState({
-      x: window.innerWidth / 4,
-      y: window.innerHeight / 4,
-      width: window.innerWidth / 2,
-      height: window.innerHeight / 2,
+      x: Math.round(window.innerWidth * 0.26),
+      y: Math.round(window.innerHeight * 0.15),
+      width: Math.round(window.innerWidth * 0.50),
+      height: Math.round(window.innerHeight * 0.60),
     });
     setIsMaximized(false);
   };
 
   const handleWindowResize = () => {
     setState({
-      x: window.innerWidth / 4,
-      y: window.innerHeight / 4,
-      width: window.innerWidth / 2,
-      height: window.innerHeight / 2,
+      x: Math.round(window.innerWidth * 0.26),
+      y: Math.round(window.innerHeight * 0.15),
+      width: Math.round(window.innerWidth * 0.50),
+      height: Math.round(window.innerHeight * 0.60),
     });
   }
 
@@ -65,7 +65,7 @@ export default function Window(props: WindowProps) {
       size={{ width: state.width, height: state.height }}
       position={{ x: state.x, y: state.y }}
       minWidth={640}
-      minHeight={480}
+      minHeight={440}
       bounds="parent"
       cancel=".win_content"
       onDragStop={(e, d) => {
@@ -97,7 +97,7 @@ export default function Window(props: WindowProps) {
             <button className="h-5 w-5 rounded-full bg-red-500" onClick={onClose}></button>
           </div>
         </div>
-        <div className="win_content cursor-default flex-grow px-4 pb-4">
+        <div className="win_content cursor-default flex-grow px-4 pb-4 overflow-auto rounded">
           {content}
         </div>
       </div>
