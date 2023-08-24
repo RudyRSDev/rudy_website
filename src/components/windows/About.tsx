@@ -12,18 +12,18 @@ export function About() {
   return (
     <div className="flex flex-col justify-center items-center py-8">
       {/* Logo */}
-      <div className="w-[44rem] mt-12">
+      <div className="w-4/5 mt-6">
         <Image src="/images/etc/logo_wide.png" alt="Rudy" width={1342} height={578} />
       </div>
 
       {/* Navitation */}
       <h1 className="text-white text-xl font-medium mt-6">Learn More About Me</h1>
-      <div className="my-4">
+      <div className="flex flex-wrap justify-center my-3 gap-1">
         {aboutNav.map((nav) => {
           const { id, name, url } = nav
           return (
-            <a key={id} href={url} className="mx-1 text-white">
-              <button className="nav-btn rounded bg-black/30 hover:bg-black/60" >{name}</button>
+            <a key={id} href={url} className=" text-white">
+              <button className="nav-btn rounded bg-black/30 hover:bg-black/60 whitespace-nowrap" >{name}</button>
             </a>
           )
         })}
@@ -31,7 +31,7 @@ export function About() {
 
       {/* Fun Facts */}
       <h1 className="text-white text-xl font-medium mt-24" id="fun-facts">Fun Facts</h1>
-      <div className="flex flex-col w-[42rem] bg-black/30 rounded overflow-hidden mt-6">
+      <div className="flex flex-col w-4/5 bg-black/30 rounded overflow-hidden mt-6">
         <div className="flex w-full"><div className="text-right w-8 bg-black/30 pr-2 py-1">#</div></div>
         {facts.map((fact) => {
           const { id, text } = fact

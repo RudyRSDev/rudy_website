@@ -13,7 +13,7 @@ export function Skills() {
 
   return (
     <div className="flex flex-wrap flex-col justify-center items-center">
-      <div className="nav-group my-4">
+      <div className="flex flex-wrap justify-center nav-group my-4">
         {filters.map((tag) => {
           return (
             <button
