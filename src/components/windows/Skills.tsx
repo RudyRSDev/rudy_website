@@ -13,12 +13,12 @@ export function Skills() {
 
   return (
     <div className="flex flex-wrap flex-col justify-center items-center">
-      <div className="btn-group btn-group-vertical lg:btn-group-horizontal my-6 px-8">
+      <div className="nav-group my-4">
         {filters.map((tag) => {
           return (
             <button
               key={tag}
-              className={`btn text-white bg-transparent border-white border-1 hover:bg-black/50 ${filter === tag ? 'btn-active ' : ''}`}
+              className={`nav-btn ${filter === tag ? 'text-white bg-black/60' : ''}`}
               onClick={() => handleFilter(tag)}
             >
               {tag}

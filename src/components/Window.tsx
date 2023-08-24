@@ -97,7 +97,7 @@ export default function Window(props: WindowProps) {
             <button className="h-5 w-5 rounded-full bg-red-500" onClick={onClose}></button>
           </div>
         </div>
-        <div className="win_content cursor-default flex-grow px-4 pb-4 overflow-auto rounded">
+        <div className="win_content cursor-default flex-grow px-4 pb-4 overflow-auto rounded scroll-smooth">
           {content}
         </div>
       </div>

@@ -7,6 +7,7 @@ body,
 #root,
 #root>div {
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 
@@ -24,4 +25,12 @@ body,
 
 .os-btn {
   @apply rounded-md bg-gray-600 h-fit px-4 py-1 text-white text-base font-light border-2 border-gray-400/0 shadow-lg hover:border-gray-400 transition-all duration-500
+}
+
+.nav-btn {
+  @apply px-6 py-3 hover:bg-black/30 hover:text-white transition-all duration-500
+}
+
+.nav-group {
+  @apply bg-black/30 rounded overflow-hidden
 }
