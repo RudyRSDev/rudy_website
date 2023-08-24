@@ -4,18 +4,19 @@ import { Rnd } from 'react-rnd';
 interface WindowProps {
   name: string;
   icon: JSX.Element;
+  count: number;
   onClose: () => void;
   onClick?: () => void;
   content: React.ReactNode;
 }
 
 export default function Window(props: WindowProps) {
-  const { name, icon, onClose, onClick, content } = props;
+  const { name, icon, count, onClose, onClick, content } = props;
 
   const [isMaximized, setIsMaximized] = useState(false);
   const [state, setState] = useState({
     x: 500,
-    y: 500,
+    y: 150,
     width: 1000,
     height: 500,
   });
@@ -42,8 +43,8 @@ export default function Window(props: WindowProps) {
 
   const handleWindowResize = () => {
     setState({
-      x: Math.round(window.innerWidth * 0.26),
-      y: Math.round(window.innerHeight * 0.15),
+      x: Math.round(window.innerWidth * 0.26) + (count * 20),
+      y: Math.round(window.innerHeight * 0.15) + (count * 20),
       width: Math.round(window.innerWidth * 0.50),
       height: Math.round(window.innerHeight * 0.60),
     });

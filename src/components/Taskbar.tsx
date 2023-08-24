@@ -1,18 +1,17 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import { IconContext } from 'react-icons';
 import { HiSquares2X2 } from 'react-icons/hi2';
 
 interface TaskbarProps {
   apps: any;
+  onWindowClick: (id: number) => void;
 }
 
 export default function Taskbar(props: TaskbarProps) {
-  const { apps } = props;
+  const { apps, onWindowClick } = props;
   const [activeApps, setActiveApps] = apps|| [apps, () => {}];
 
-  const handleTaskbarButtonClick = (name: string) => {
+  const handleTaskbarButtonClick = (name: string, id: number) => {
     setActiveApps((prevApps: any[]) => {
       return prevApps.map((app: { name: string; }) => {
         if (app.name === name) {
@@ -22,6 +21,7 @@ export default function Taskbar(props: TaskbarProps) {
         }
       });
     });
+    onWindowClick(id)
   };
 
   const [time, setTime] = useState(new Date());
@@ -64,7 +64,7 @@ export default function Taskbar(props: TaskbarProps) {
               <div className="btn-ghost btn tooltip flex aspect-square h-full items-center justify-center text-white transition-all duration-500"
                 key={id}
                 data-tip={name}
-                onClick={() => handleTaskbarButtonClick(name)}
+                onClick={() => handleTaskbarButtonClick(name, id)}
               >
                 <IconContext.Provider value={{ size: '1em' }}>
                   <div className="flex flex-col items-center justify-center text-3xl">
@@ -79,7 +79,7 @@ export default function Taskbar(props: TaskbarProps) {
               <div className="btn-ghost btn tooltip flex aspect-square h-full items-center justify-center text-white transition-all duration-500"
                 key={id}
                 data-tip={name}
-                onClick={() => handleTaskbarButtonClick(name)}
+                onClick={() => handleTaskbarButtonClick(name, id)}
               >
                 <IconContext.Provider value={{ size: '1em' }}>
                   <div className="flex flex-col items-center justify-center text-3xl">

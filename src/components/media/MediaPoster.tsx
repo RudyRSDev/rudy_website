@@ -21,7 +21,7 @@ export const MediaPoster = (props: MediaPosterProps) => {
         <div className="flex items-center">
           <FaStar /> <h1 className="pl-1">{rating}/10</h1>
         </div>
-      I</div>
+      </div>
     </div>
   )
 }

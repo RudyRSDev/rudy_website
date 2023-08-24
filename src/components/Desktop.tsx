@@ -31,9 +31,11 @@ export default function Desktop() {
     });
   };
 
+  const windowCount = activeApps.filter((app) => app.state === 1).length;
+
   return (
     <div className="flex h-screen w-screen flex-col-reverse">
-      <Taskbar apps={[activeApps, setActiveApps]}/>
+      <Taskbar apps={[activeApps, setActiveApps]} onWindowClick={handleWindowClick} />
       <div className="h-full w-full">
         {activeApps.map((app) => {
           const { id, name, icon, alt, window, state } = app;
@@ -43,6 +45,7 @@ export default function Desktop() {
                 key={id}
                 name={name}
                 icon={icon}
+                count={windowCount}
                 onClose={() => handleClose(name)}
                 onClick={() => handleWindowClick(id)}             
                 content={window}

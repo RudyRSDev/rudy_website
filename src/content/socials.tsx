@@ -1,5 +1,8 @@
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa6";
 import { HiMail } from 'react-icons/hi';
+import xtwitter from '/images/media/x-twitter.svg'
+import Image from "next/image";
+
 
 export const socials = [
   {
@@ -22,9 +25,14 @@ export const socials = [
   },
   {
     id: 4,
-    name: 'Twitter',
-    icon: <FaTwitter />,
-    url: 'https://twitter.com/'
+    name: 'X/Twitter',
+    icon: <Image
+      src="/images/media/x-twitter.svg"
+      alt="Follow us on Twitter"
+      width={36} height={36}
+    />,
+    url: 'https://twitter.com/',
+    alt: <FaTwitter />
   },
   {
     id: 5,
