@@ -1,30 +1,22 @@
+import { edu } from "@/content/edu";
+
 export function Education() {
-  const boxes = Array.from({ length: 6 }, (_, index) => index + 1);
 
   return (
-    <div className="flex flex-wrap flex-col justify-center items-center">
-      <h1 className="text-lg text-red">Education</h1>
-      <div className="grid grid-cols-2">
-        {boxes.slice(0, 2).map((box) => (
-          <div key={box} className="box h-32 w-32 bg-red-900 flex justify-center items-center">
-            Box {box}
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-2">
-        {boxes.slice(2, 4).map((box) => (
-          <div key={box} className="box h-32 w-32 bg-red-900 flex justify-center items-center">
-            Box {box}
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-2">
-        {boxes.slice(4, 6).map((box) => (
-          <div key={box} className="box h-32 w-32 bg-red-900 flex justify-center items-center">
-            Box {box}
-          </div>
-        ))}
-      </div>
+    <div className="flex flex-col gap-12 items-center my-12">
+        {edu.map((school) => {
+          const { id, name, location, title, graduation, gpa, image } = school
+          return (
+            <div key={id} className="flex flex-col w-4/5 bg-black/30 p-12 rounded text-white">
+              <div className="max-w-[24rem] p-4 bg-black/30 rounded">{image}</div>
+              <h1 className="font-semibold text-3xl mt-4">{name}</h1>
+              <h2 className="font-light opacity-75">Location: {location}</h2>
+              <h2 className="mt-4 text-lg">Certificate: {title}</h2>
+              <h2 className="text-lg">Graduation: {graduation}</h2>
+              <h2 className="text-lg">GPA: {gpa}</h2>             
+            </div>
+          )
+        })}
     </div>
   );
 }

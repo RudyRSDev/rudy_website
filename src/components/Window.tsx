@@ -15,11 +15,22 @@ export default function Window(props: WindowProps) {
 
   const [isMaximized, setIsMaximized] = useState(false);
   const [state, setState] = useState({
-    x: 500,
-    y: 150,
-    width: 1000,
-    height: 500,
+    x: -500,
+    y: 1200,
+    width: 640,
+    height: 440,
   });
+
+  const handleClose = () => {
+    setState({
+      x: -500,
+      y: 1200,
+      width: 640,
+      height: 440,
+    })
+    // delay 300ms before closing
+    setTimeout(() => { onClose() }, 500);
+  }
 
   const handleMaximize = () => {
     setState({
@@ -56,12 +67,9 @@ export default function Window(props: WindowProps) {
     return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
 
-  const initWidth = state.width;
-  const initHeight = state.height;
-
   return (
     <Rnd
-      className="flex flex-col items-center justify-center rounded bg-black/40 backdrop-blur-lg"
+      className="flex flex-col items-center justify-center rounded bg-black/40 backdrop-blur-lg "
       onClick={onClick}
       size={{ width: state.width, height: state.height }}
       position={{ x: state.x, y: state.y }}

@@ -18,7 +18,7 @@ export function About() {
 
       {/* Navitation */}
       <h1 className="text-white text-xl font-medium mt-6">Learn More About Me</h1>
-      <div className="flex flex-wrap justify-center my-3 gap-1">
+      <div className="flex flex-wrap w-2/3 justify-center my-3 gap-1">
         {aboutNav.map((nav) => {
           const { id, name, url } = nav
           return (
@@ -73,7 +73,7 @@ export function About() {
 
       {/* Top Movies */}
       <h1 className="text-white text-xl font-medium mt-24" id="movies">Top Movies</h1>
-      <div className="flex max-w-2xl bg-black/30 rounded overflow-hidden mt-6 p-12 gap-8 overflow-x-auto">
+      <div className="flex max-w-xl bg-black/30 rounded overflow-hidden mt-6 p-8 gap-8 overflow-x-auto">
         {topMovies.map((movie) => {
           const { id, name, image, rating } = movie
           return (
@@ -84,7 +84,7 @@ export function About() {
 
       {/* Top TV Shows */}
       <h1 className="text-white text-xl font-medium mt-24" id="tv-shows">Top TV Shows</h1>
-      <div className="flex max-w-2xl bg-black/30 rounded overflow-hidden mt-6 p-12 gap-8 overflow-x-auto">
+      <div className="flex max-w-xl bg-black/30 rounded overflow-hidden mt-6 p-8 gap-8 overflow-x-auto">
         {topShows.map((show) => {
           const { id, name, image, rating } = show
           return (
@@ -95,7 +95,7 @@ export function About() {
 
       {/* Top Anime */}
       <h1 className="text-white text-xl font-medium mt-24" id="anime">Top Anime</h1>
-      <div className="flex max-w-2xl bg-black/30 rounded overflow-hidden mt-6 p-12 gap-8 overflow-x-auto">
+      <div className="flex max-w-xl bg-black/30 rounded overflow-hidden mt-6 p-8 gap-8 overflow-x-auto">
         {topAnime.map((anime) => {
           const { id, name, image, rating } = anime
           return (
@@ -106,7 +106,7 @@ export function About() {
 
       {/* Top Games */}
       <h1 className="text-white text-xl font-medium mt-24" id="games">Top Games</h1>
-      <div className="flex max-w-2xl bg-black/30 rounded overflow-hidden mt-6 p-12 gap-8 overflow-x-auto">
+      <div className="flex max-w-xl bg-black/30 rounded overflow-hidden mt-6 p-8 gap-8 overflow-x-auto">
         {topGames.map((game) => {
           const { id, name, image, rating } = game
           return (
