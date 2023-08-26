@@ -21,7 +21,7 @@ export function Experience() {
             return (
               <div key={id} className="flex gap-4 text-white hover:bg-black/30 p-2 pl-4" onClick={() => handleActive(id)}>
                 <div><FaFolderOpen className="text-2xl" /></div>
-                <h1 className="font-normal line-clamp-1">{location}</h1>
+                <h1 className="font-medium line-clamp-1">{location}</h1>
               </div>
             )
           return (
@@ -38,7 +38,7 @@ export function Experience() {
             return (
               <div key={id} className="flex gap-4 text-white hover:bg-black/30 p-2 pl-4" onClick={() => handleActive(id)}>
                 <div><FaFolderOpen className="text-2xl" /></div>
-                <h1 className="font-normal line-clamp-1">{location}</h1>
+                <h1 className="font-medium line-clamp-1">{location}</h1>
               </div>
             )
           return (
