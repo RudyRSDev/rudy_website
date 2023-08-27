@@ -15,13 +15,13 @@ export const socials = [
     id: 2,
     name: 'LinkedIn',
     icon: <FaLinkedin />,
-    url: 'https://www.linkedin.com/'
+    url: 'https://www.linkedin.com/in/rudyrsdev/'
   },
   {
     id: 3,
     name: 'GitHub',
     icon: <FaGithub />,
-    url: 'https://github.com/RudySPG'
+    url: 'https://github.com/rudyrsdev'
   },
   {
     id: 4,
@@ -31,13 +31,13 @@ export const socials = [
       alt="Follow us on Twitter"
       width={36} height={36}
     />,
-    url: 'https://twitter.com/',
+    url: 'https://twitter.com/rudyrsdev',
     alt: <FaTwitter />
   },
   {
     id: 5,
     name: 'Instagram',
     icon: <FaInstagram />,
-    url: 'https://www.instagram.com/'
+    url: 'https://www.instagram.com/rudyrsdev/'
   }
 ]

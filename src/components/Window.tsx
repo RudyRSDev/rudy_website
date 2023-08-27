@@ -94,7 +94,7 @@ export default function Window(props: WindowProps) {
           <div className="flex text-lg font-medium text-white items-center gap-2">
             {icon}
             {name}
-            <h1 className="font-thin"> Debug w:{state.width} h:{state.height} x:{state.x} y:{state.y}</h1>
+            {/* <h1 className="font-thin"> Debug w:{state.width} h:{state.height} x:{state.x} y:{state.y}</h1> */}
           </div>
           <div className="flex items-center gap-4">
             <button className="h-5 w-5 rounded-full bg-green-500" onClick={onClose}></button>
