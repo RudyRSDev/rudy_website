@@ -1,7 +1,12 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Inter, Roboto } from 'next/font/google';
+
 
 const inter = Inter({ subsets: ['latin'] });
+const roboto = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata = {
   title: 'Rodolfo Sandoval [Rudy]',
@@ -16,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <div>
-        <body className={inter.className}>{children}</body>
+        <body className={roboto.className}>{children}</body>
       </div>
     </html>
   );

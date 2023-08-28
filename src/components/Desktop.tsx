@@ -36,6 +36,9 @@ export default function Desktop() {
   return (
     <div className="flex h-screen w-screen flex-col-reverse">
       <Taskbar apps={[activeApps, setActiveApps]} onWindowClick={handleWindowClick} />
+      {/* <div className="flex gap-1">
+        <p>Width: {dimesions.width}, Height: {dimesions.height}</p>
+      </div> */}
       <div className="h-full w-full">
         {activeApps.map((app) => {
           const { id, name, icon, alt, window, state } = app;

@@ -52,7 +52,10 @@ export function Experience() {
 
       
       <div className="flex flex-col w-3/4 px-12 pt-2">
-        <h1 className={`text-2xl font-semibold text-white${active !== 0 ? ' hidden' : ''}`}>Select a Folder</h1>
+        
+        <div className={`flex justify-center items-center h-full text-2xl font-semibold text-white${active !== 0 ? ' hidden' : ''}`}>
+          <h1>Select a Folder</h1>
+        </div>
         {experience.filter(job => job.id === active).map((job) => {
           const { id, location, title, date, number, address, desc, tasks, tech } = job
           return (

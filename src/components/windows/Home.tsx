@@ -7,12 +7,12 @@ export function Home() {
   const [useIcon, setUseIcon] = useState(true)
 
   return (
-    <div className="flex h-full w-full">
+    <div className="flex flex-wrap h-full w-full">
       {/* Left Panel */}
       <div className="flex relative justify-center items-center w-1/3">
         <div className="absolute rounded-full w-44 h-44 bg-white shadow-[0px_6px_14px_1px_rgba(0,0,0,0.53),0px_0px_4px_0px_rgba(0,0,0,0.14)] border-1 border-solid border-gray-500 bg-gradient-to-b from-slate-50 to-gray-300"></div>
         <div className="absolute rounded-full w-40 h-40 bg-black border-1 border-white overflow-hidden">
-          <Image src="/images/etc/logo.jpg" alt="Rudy" width={800} height={800} />
+          <Image src="/images/etc/profile.jpg" alt="Rudy" width={800} height={800} />
         </div>
       </div>
 
@@ -32,7 +32,7 @@ export function Home() {
             <Link href="/docs/visual_resume_sandoval.pdf" target="_blank" download="Sandoval Resume Visual">
               <button className="os-btn"><h1 className="h-auto p-0">Visual</h1></button>
             </Link>
-            <button className="os-btn">Technical</button>
+            <button className="os-btn opacity-50">Technical</button>
           </div>
         </div>
         <div className="flex flex-col text-xl">

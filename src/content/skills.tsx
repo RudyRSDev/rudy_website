@@ -1,6 +1,8 @@
 import { FaCss3, FaGithub, FaHtml5, FaJava, FaNodeJs, FaPython, FaReact } from "react-icons/fa6";
 import { GrMysql } from "react-icons/gr";
 import { TbBrandReactNative } from "react-icons/tb";
+import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
+import { RiJavascriptFill } from "react-icons/ri";
 import { SiAdobeaftereffects, SiAdobecreativecloud, SiAdobeillustrator, SiAdobelightroom, SiAdobephotoshop, SiAdobepremierepro, SiAdobexd, SiAutodesk, SiAutohotkey, SiCplusplus, SiFigma, SiFirebase, SiGit, SiGnubash, SiGooglecloud, SiJavascript, SiJetbrains, SiMongodb, SiNextdotjs, SiRuby, SiTailwindcss, SiTypescript, SiVisualstudio, SiVisualstudiocode } from "react-icons/si";
 
 export const skills = [
@@ -21,14 +23,14 @@ export const skills = [
   {
     id: 3,
     name: 'JavaScript',
-    icon: <SiJavascript />,
+    icon: <RiJavascriptFill />,
     tag: "Programming",
     url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   },
   {
     id: 4,
     name: 'TypeScript',
-    icon: <SiTypescript />,
+    icon: <BiLogoTypescript />,
     tag: "Programming",
     url: "https://www.typescriptlang.org/"
   },

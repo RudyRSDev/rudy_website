@@ -34,6 +34,9 @@ export function Projects() {
 
       {/* Right Panel */}
       <div className="flex flex-col w-3/4 px-12 pt-2">
+        <div className={`flex justify-center items-center h-full text-2xl font-semibold text-white${active !== 0 ? ' hidden' : ''}`}>
+          <h1>Select a Folder</h1>
+        </div>
         {projects.filter(project => project.id === active).map((project) => {
           const { id, name, year, desc, links, images, tech } = project
           return (

@@ -1,7 +1,8 @@
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import { FaArtstation, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa6";
 import { HiMail } from 'react-icons/hi';
 import xtwitter from '/images/media/x-twitter.svg'
 import Image from "next/image";
+import { SiBento } from "react-icons/si";
 
 
 export const socials = [
@@ -39,5 +40,17 @@ export const socials = [
     name: 'Instagram',
     icon: <FaInstagram />,
     url: 'https://www.instagram.com/rudyrsdev/'
+  },
+  {
+    id: 6,
+    name: 'Artstation',
+    icon: <FaArtstation />,
+    url: 'https://www.artstation.com/rudyrsdev'
+  },
+  {
+    id: 7,
+    name: 'Bento',
+    icon: <SiBento />,
+    url: 'https://bento.me/rudyrsdev'
   }
 ]
