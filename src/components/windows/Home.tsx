@@ -28,11 +28,29 @@ export function Home() {
         </div>
         <div className="flex flex-col text-xl">
           <h1 className="font-medium">Resume</h1>
-          <div className="flex gap-4 mt-2">
-            <Link href="/docs/visual_resume_sandoval.pdf" target="_blank" download="Sandoval Resume Visual">
-              <button className="os-btn"><h1 className="h-auto p-0">Visual</h1></button>
-            </Link>
-            <button className="os-btn opacity-50">Technical</button>
+          <div className="flex pt-1 gap-6">
+            <div>
+              <h2 className="font-light text-base">Technical</h2>
+              <div className="flex gap-2 pt-1">
+                <Link href="/docs/r_sandoval_tech_resume_web.pdf" target="_blank" download="Sandoval Resume">
+                  <button className="nav-btn !px-4 !py-1 rounded bg-black/30 hover:bg-black/60 whitespace-nowrap" ><span className="font-light text-base">.pdf</span></button>
+                </Link>
+                <Link href="/docs/r_sandoval_tech_resume_web.docx" target="_blank" download="Sandoval Resume">
+                  <button className="nav-btn !px-4 !py-1 rounded bg-black/30 hover:bg-black/60 whitespace-nowrap" ><span className="font-light text-base">.docx</span></button>
+                </Link>
+              </div>
+            </div>
+            <div>
+              <h2 className="font-light text-base">Visual</h2>
+              <div className="flex gap-2 pt-1">
+                <Link href="/docs/r_sandoval_visual_resume_web.pdf" target="_blank" download="Sandoval Resume Visual">
+                  <button className="nav-btn !px-4 !py-1 rounded bg-black/30 hover:bg-black/60 whitespace-nowrap" ><span className="font-light text-base">.pdf</span></button>
+                </Link>
+                <Link href="/docs/r_sandoval_visual_resume_web.docx" target="_blank" download="Sandoval Resume Visual">
+                  <button className="nav-btn !px-4 !py-1 rounded bg-black/30 hover:bg-black/60 whitespace-nowrap" ><span className="font-light text-base">.docx</span></button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex flex-col text-xl">
