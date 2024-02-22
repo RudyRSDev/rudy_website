@@ -20,14 +20,7 @@ export function Home() {
       <div className="flex flex-col justify-center items-start gap-8 w-2/3 text-white ">
         <div className="flex flex-col">
           <h1 className="text-3xl font-medium">Rodolfo Sandoval</h1>
-          <h2 className="text-base font-light">version 1.0.5</h2>
-        </div>
-        {/* Blizzcon */}
-        <div className="flex max-w-lg flex-col text-xl text-white">
-            <h1 className="font-medium">Blizzcon Friends!</h1>
-            <h2 className="text-base font-light">Blizzard: RudySPG#1471</h2>
-            <h2 className="text-base font-light">Discord: RudySPG</h2>
-            <h2 className="text-base font-light">Steam: 111774315 or RudySPG</h2>
+          <h2 className="text-base font-light">version 1.0.6</h2>
         </div>
         <div className="flex flex-col text-xl max-w-lg">
           <h1 className="font-medium">About Me</h1>

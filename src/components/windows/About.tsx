@@ -49,7 +49,7 @@ export function About() {
       </div>
 
       {/* Album */}
-      <h1 className="text-white text-xl font-medium mt-24" id="album">Picture Album</h1>
+      {/* <h1 className="text-white text-xl font-medium mt-24" id="album">Picture Album</h1>
       <div className="carousel carousel-center max-w-2xl p-4 mt-6 space-x-4 bg-black/30 rounded-box h-[24rem]">
         {album.map((photo) => {
           const { id, url } = photo
@@ -69,7 +69,7 @@ export function About() {
             </a>
           )
         })}
-      </div>
+      </div> */}
 
       {/* Top Movies */}
       <h1 className="text-white text-xl font-medium mt-24" id="movies">Top Movies</h1>

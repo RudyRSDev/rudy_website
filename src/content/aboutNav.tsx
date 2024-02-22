@@ -4,11 +4,11 @@ export const aboutNav = [
     name: 'Fun Facts',
     url: '#fun-facts'
   },
-  {
-    id: 2,
-    name: 'Album',
-    url: '#album'
-  },
+  // {
+  //   id: 2,
+  //   name: 'Album',
+  //   url: '#album'
+  // },
   {
     id: 3,
     name: 'Movies',

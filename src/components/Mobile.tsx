@@ -17,50 +17,8 @@ export default function Mobile() {
         </div>
 
         <div className="my-6 flex flex-col justify-start gap-4 px-6">
-          {/* Blizzcon */}
-          <div className="flex max-w-lg flex-col text-xl text-white">
-            <h1 className="font-medium">Blizzcon Friends!</h1>
-            <h2 className="text-base font-light">Blizzard: RudySPG#1471</h2>
-            <h2 className="text-base font-light">Discord: RudySPG</h2>
-            <h2 className="text-base font-light">Steam: 111774315 or RudySPG</h2>
-          </div>
 
-          {/* Find Me */}
-          <div className="flex flex-col text-xl text-white">
-            <h1 className="font-medium">Find Me</h1>
-            <div className="flex gap-4">
-              {socials.map((social) => {
-                const { id, name, icon, url, alt } = social;
-                if (name !== 'X/Twitter')
-                  return (
-                    <Link
-                      data-tip={name}
-                      key={id}
-                      href={url}
-                      target="_blank"
-                      className=""
-                    >
-                      <div className=" mt-2 text-3xl text-white transition-all duration-500 hover:opacity-50">
-                        {icon}
-                      </div>
-                    </Link>
-                  );
-                return (
-                  <Link
-                    data-tip={name}
-                    key={id}
-                    href={url}
-                    target="_blank"
-                    className=""
-                  >
-                    <div className=" mt-2 text-3xl text-white transition-all duration-500 hover:opacity-50">
-                      {alt}
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+          
 
           {/* About Me */}
           <div className="flex max-w-lg flex-col text-xl text-white">
@@ -123,6 +81,43 @@ export default function Mobile() {
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Find Me */}
+          <div className="flex flex-col text-xl text-white">
+            <h1 className="font-medium">Find Me</h1>
+            <div className="flex gap-4">
+              {socials.map((social) => {
+                const { id, name, icon, url, alt } = social;
+                if (name !== 'X/Twitter')
+                  return (
+                    <Link
+                      data-tip={name}
+                      key={id}
+                      href={url}
+                      target="_blank"
+                      className=""
+                    >
+                      <div className=" mt-2 text-3xl text-white transition-all duration-500 hover:opacity-50">
+                        {icon}
+                      </div>
+                    </Link>
+                  );
+                return (
+                  <Link
+                    data-tip={name}
+                    key={id}
+                    href={url}
+                    target="_blank"
+                    className=""
+                  >
+                    <div className=" mt-2 text-3xl text-white transition-all duration-500 hover:opacity-50">
+                      {alt}
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
